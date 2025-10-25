@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="DynamicTree: Interactive Real Tree Animation via Sparse Voxel Spectrum">
+  <meta name="keywords" content="Active Mapping, Next-Best-View, Exploration Policy">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <style>
+    h1 {
+      color: #8C1515;
+    }
+  </style> -->
+  <title>DynamicTree: Interactive Real Tree Animation via Sparse Voxel Spectrum</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+
+
+
+
+
+
+
+<body>
+
+
+<section class="hero">
+  <div class="hero-body" style="padding-bottom: 0.2rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title" style="color: #0b0a0a; 
+          letter-spacing: -0.02em;
+          line-height: 1.3;
+          font-size: 3.0rem;
+          margin-left: -35.0%;
+          margin-right: -35.0%;">
+          <span style="background: linear-gradient(45deg, #2d5a27, #4a7c59, #6b8e23, #228b22); 
+          -webkit-background-clip: text; 
+          -webkit-text-fill-color: transparent; 
+          background-clip: text;
+          font-weight: bold;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+          font-size: 3.0rem;
+          font-family: 'Brush Script MT', cursive;
+          font-style: normal;
+          display: inline-block;
+          filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.3));">DynamicTree</span>
+          <span style="font-size: 3.0rem;">🌳</span>:  Interactive Real Tree Animation <br> via Sparse Voxel Spectrum
+          </h1>
+
+          <!-- Authors -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://iron-lyk.github.io/" target="_blank">Yaokun Li</a><sup>1,2</sup>, </span>
+            <span class="author-block"><a href="https://dinglihe.github.io/" target="_blank">Lihe Ding</a><sup>2</sup>, </span>
+            <span class="author-block"><a href="https://xiao-chen.tech/" target="_blank">Xiao Chen</a><sup>2</sup>, </span>
+            <span class="author-block"><a href="https://ise.sysu.edu.cn/teacher/TanGuang" target="_blank">Guang Tan</a><sup>1</sup>, </span>
+            <span class="author-block"><a href="https://tianfan.info/" target="_blank">Tianfan Xue</a><sup>2</sup></span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup> Sun Yat-sen University,</span>
+            <span class="author-block"><sup>2</sup> The Chinese University of Hong Kong</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+
+              <!-- arXiv Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Iron-LYK/DynamicTree"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Iron-LYK/DynamicTree" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+              <!-- Data Link. -->
+              <span class="link-block">
+                <a href="" class="external-link button is-normal is-rounded" style="background-color: #222; color: #bbb; border: none;">
+                  <span class="icon" style="color: #666;">
+                      <i class="fa fa-database"></i>
+                  </span>
+                  <span style="color: #fff;">Data (coming soon)</span>
+                </a>
+              </span>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<hr width="100%" size="2">
+
+
+
+
+<!-- TL;DR + Teaser video -->
+<section class="hero teaser" style="padding-top: 20px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body" style="padding-top: 20px;">
+      <video id="teaser"               
+               controls
+               muted
+               preload
+               playsinline height="100%"
+               class="rounded-video">
+        <source src="./static/videos/dynamictree_project.mp4"
+                type="video/mp4">
+      </video>
+      <p class="video-sound-reminder has-text-centered">
+        <span style="font-size: 1.3em;">🔊</span> click speaker icon to unmute
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content has-text-centered">
+      <img width="120%" src="./static/images/teaser.png">
+    </div>
+    <div style="margin-top: 2px; margin-bottom: 2px;">
+      <h1 class="tldr" style="font-size: 1.09em;">
+        <b>TL;DR</b>:
+        We introduce <b>DynamicTree</b>, a 4D generative framework for long-term realistic animation and dynamic interaction of reconstructed 3DGS trees, which first produces mesh motion through a compact sparse voxel spectrum representation and then deforms surface-bound Gaussian primitives. We further present the first large-scale 4D dynamic tree dataset, containing <i>8,786</i> animated tree meshes.
+      </h1>
+    </div>
+  </div>
+</section>
+
+
+<!-- Abstract -->
+<hr width="100%" size="2">
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h1 class="title is-3" style="color: #0b0b0b;">Abstract</h2>
+        <div class="content has-text-justified" style="font-size: 1.09em;">
+          Generating dynamic and interactive 3D objects, such as trees, has wide applications in virtual reality, games, and world simulation. Nevertheless, existing methods still face various challenges in generating realistic 4D motion for complex real trees. In this paper, we propose DynamicTree, the first framework that can generate long-term, interactive animation of 3D Gaussian Splatting trees. Unlike prior optimization-based methods, our approach generates dynamics in a fast feed-forward manner. The key success of our approach is the use of a compact <i>sparse voxel spectrum</i> to represent the tree movement. Given a 3D tree from Gaussian Splatting reconstruction, our pipeline first generates mesh motion using the sparse voxel spectrum and then binds Gaussians to deform the mesh. Additionally, the proposed sparse voxel spectrum can also serve as a basis for fast modal analysis under external forces, allowing real-time interactive responses. To train our model, we also introduce 4DTree, the first large-scale synthetic 4D tree dataset containing 8,786 animated tree meshes with semantic labels and 100-frame motion sequences. Extensive experiments demonstrate that our method achieves realistic and responsive tree animations, significantly outperforming existing approaches in both visual quality and computational efficiency.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Methodolegy -->
+<!-- <hr width="130%" size="2"> -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <h1 class="title is-3" style="color: #080808;">Methodology</h2>
+    </div>
+    <br>
+
+    <div class="content has-text-centered">
+      <img width="160%" src="./static/images/framework.png">
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <div class="content has-text-justified" style="font-size: 1.09em;">
+          Overview of our framework. Our method animates 3DGS trees in two stages: (1) spectrum-based motion generation in the frequency domain, and (2) deformation transfer to 3DGS through mesh binding. In the first stage, we extract the tree mesh from multi-view images, voxelize it, and encode it into a sparse voxel latent condition. A sparse voxel diffusion model then generates a compact motion representation S, which is used to reconstruct mesh motion via devoxelization and inverse Fast Fourier Transform. In the second stage, 3DGS primitives are bound to the mesh surface and animated by its deformations.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Qualitative Results -->
+<hr width="100%" size="2">
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3" style="color: #030303;">Qualitative Results</h2>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <div class="content has-text-centered">
+          <img width="90%" src="./static/images/qualitative_gen.png" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+        </div>
+        <div class="content has-text-justified" style="font-size: 1.09em;">
+          <p><strong>Comparison with 4DGen.</strong> We visualize the middle frame of the generated sequence, where our method preserves better 3D structures. Space-time slices are shown, with vertical and horizontal axes representing time and the spatial profile along the brown line, respectively.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <div class="content has-text-centered">
+          <img width="90%" src="./static/images/qualitative_sim.png">
+        </div>
+        <div class="content has-text-justified" style="font-size: 1.09em;">
+          <p><strong>Interactive simulation comparison</strong> of different methods. We apply a dragging external force and then visualize the response of the scene, where our approach produces more natural oscillatory motion with finer-grained details. t and T denote the middle and final frames, respectively.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Quantitative Results -->
+<!-- <hr width="100%" size="2"> -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <h1 class="title is-3" style="color: #030303;">Quantitative Results</h2>
+    </div>
+
+    <div class="content has-text-centered">
+      <img width="84%" src="./static/images/quantitative.png" style="margin-top: 1rem; margin-bottom: 1rem;">
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <div class="content has-text-justified" style="font-size: 1.09em;">
+          Quantitative comparison of our method and other methods. The upper part is a comparison of 3D animation, and the lower part is a comparison of interactive simulation.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<hr width="100%" size="2">
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title" style="color: #050505;">Citation</h2>
+    If you find this project helpful, please cite us:
+    <pre><code>@article{Li2025dynamictree,
+      author    = {Li, Yaokun and Ding, Lihe and Chen, Xiao and Tan, Guang and Xue, Tianfan},
+      title     = {DynamicTree: Interactive Real Tree Animation via Sparse Voxel Spectrum},
+      journal   = {xxx},
+      year      = {2025},
+    }</code></pre>
+  </div>
+</section>
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+
+      <div class="content">
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full">
+            <div class="content has-text-justified">
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template/">Template</a>, which was adopted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project page.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
