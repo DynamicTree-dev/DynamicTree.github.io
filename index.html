@@ -84,11 +84,12 @@
             <span class="author-block"><a href="https://dinglihe.github.io/" target="_blank">Lihe Ding</a><sup>2</sup>, </span>
             <span class="author-block"><a href="https://xiao-chen.tech/" target="_blank">Xiao Chen</a><sup>2</sup>, </span>
             <span class="author-block"><a href="https://ise.sysu.edu.cn/teacher/TanGuang" target="_blank">Guang Tan</a><sup>1</sup>, </span>
-            <span class="author-block"><a href="https://tianfan.info/" target="_blank">Tianfan Xue</a><sup>2</sup></span>
+            <span class="author-block"><a href="https://tianfan.info/" target="_blank">Tianfan Xue</a><sup>2,3</sup></span>
           </div>
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup> Sun Yat-sen University,</span>
-            <span class="author-block"><sup>2</sup> The Chinese University of Hong Kong</span>
+            <span class="author-block"><sup>2</sup> CUHK MMLab,</span>
+            <span class="author-block"><sup>3</sup> CPII under InnoHK</span>
           </div>
 
           <div class="column has-text-centered">
@@ -96,7 +97,7 @@
 
               <!-- arXiv Link. -->
               <span class="link-block">
-                <a href="https://github.com/Iron-LYK/DynamicTree"
+                <a href="https://arxiv.org/abs/2510.22213"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -164,7 +165,7 @@
   </div>
 </section>
 
-<!-- Teaser -->
+
 <section class="section">
   <div class="container is-max-desktop">
     <div class="content has-text-centered">
@@ -179,28 +180,24 @@
   </div>
 </section>
 
-
-<!-- Abstract -->
 <hr width="100%" size="2">
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
-        <h1 class="title is-3" style="color: #0b0b0b;">Abstract</h2>
+        <h1 class="title is-3" style="color: #0b0b0b;">Abstract</h1>
         <div class="content has-text-justified" style="font-size: 1.09em;">
-          Generating dynamic and interactive 3D objects, such as trees, has wide applications in virtual reality, games, and world simulation. Nevertheless, existing methods still face various challenges in generating realistic 4D motion for complex real trees. In this paper, we propose DynamicTree, the first framework that can generate long-term, interactive animation of 3D Gaussian Splatting trees. Unlike prior optimization-based methods, our approach generates dynamics in a fast feed-forward manner. The key success of our approach is the use of a compact <i>sparse voxel spectrum</i> to represent the tree movement. Given a 3D tree from Gaussian Splatting reconstruction, our pipeline first generates mesh motion using the sparse voxel spectrum and then binds Gaussians to deform the mesh. Additionally, the proposed sparse voxel spectrum can also serve as a basis for fast modal analysis under external forces, allowing real-time interactive responses. To train our model, we also introduce 4DTree, the first large-scale synthetic 4D tree dataset containing 8,786 animated tree meshes with semantic labels and 100-frame motion sequences. Extensive experiments demonstrate that our method achieves realistic and responsive tree animations, significantly outperforming existing approaches in both visual quality and computational efficiency.
+          Generating dynamic and interactive 3D trees has wide applications in virtual reality, games, and world simulation. However, existing methods still face various challenges in generating structurally consistent and realistic 4D motion for complex real trees. In this paper, we propose DynamicTree, the first framework that can generate long-term, interactive 3D motion for 3DGS reconstructions of real trees. Unlike prior optimization-based methods, our approach generates dynamics in a fast feed-forward manner. The key success of our approach is the use of a compact sparse voxel spectrum to represent the tree movement. Given a 3D tree from Gaussian Splatting reconstruction, our pipeline first generates mesh motion using the sparse voxel spectrum and then binds Gaussians to deform the mesh. Additionally, the proposed sparse voxel spectrum can also serve as a basis for fast modal analysis under external forces, allowing real-time interactive responses. To train our model, we also introduce 4DTree, the first large-scale synthetic 4D tree dataset containing 8,786 animated tree meshes with semantic labels and 100-frame motion sequences. Extensive experiments demonstrate that our method achieves realistic and responsive tree animations, significantly outperforming existing approaches in both visual quality and computational efficiency.
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Methodolegy -->
-<!-- <hr width="130%" size="2"> -->
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <h1 class="title is-3" style="color: #080808;">Methodology</h2>
+      <h1 class="title is-3" style="color: #080808;">Methodology</h1>
     </div>
     <br>
 
@@ -218,8 +215,6 @@
   </div>
 </section>
 
-
-<!-- Qualitative Results -->
 <hr width="100%" size="2">
 <section class="section">
   <div class="container is-max-desktop">
@@ -233,7 +228,7 @@
           <img width="90%" src="./static/images/qualitative_gen.png" style="margin-top: 1rem; margin-bottom: 1.5rem;">
         </div>
         <div class="content has-text-justified" style="font-size: 1.09em;">
-          <p><strong>Comparison with 4DGen.</strong> We visualize the middle frame of the generated sequence, where our method preserves better 3D structures. Space-time slices are shown, with vertical and horizontal axes representing time and the spatial profile along the brown line, respectively.</p>
+          <p><strong>Comparison with 4D generation methods.</strong> We visualize the middle frame of the sequence, where our method better preserves 3D structures. Space-time slices are shown, with vertical and horizontal axes representing time and the spatial profile along the brown line.</p>
         </div>
       </div>
     </div>
@@ -252,13 +247,10 @@
   </div>
 </section>
 
-
-<!-- Quantitative Results -->
-<!-- <hr width="100%" size="2"> -->
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <h1 class="title is-3" style="color: #030303;">Quantitative Results</h2>
+      <h1 class="title is-3" style="color: #030303;">Quantitative Results</h1>
     </div>
 
     <div class="content has-text-centered">
@@ -282,11 +274,14 @@
   <div class="container is-max-desktop content">
     <h2 class="title" style="color: #050505;">Citation</h2>
     If you find this project helpful, please cite us:
-    <pre><code>@article{Li2025dynamictree,
-      author    = {Li, Yaokun and Ding, Lihe and Chen, Xiao and Tan, Guang and Xue, Tianfan},
-      title     = {DynamicTree: Interactive Real Tree Animation via Sparse Voxel Spectrum},
-      journal   = {xxx},
-      year      = {2025},
+    <pre><code>@misc{li2025dynamictree,
+        title={DynamicTree: Interactive Real Tree Animation via Sparse Voxel Spectrum}, 
+        author={Yaokun Li and Lihe Ding and Xiao Chen and Guang Tan and Tianfan Xue},
+        year={2025},
+        eprint={2510.22213},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV},
+        url={https://arxiv.org/abs/2510.22213}, 
     }</code></pre>
   </div>
 </section>
